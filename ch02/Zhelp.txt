@@ -1,0 +1,81 @@
+
+BABEL helps to convert ECMAScript(ES6)/ Modern JavaScript to Traditional Javascript so that it could be understood by
+ previous Browser
+
+
+## PACKAGES REQUIRED FOR BABEL
+1) @babel/core
+2) @babel/cli  
+    => babel comes with its own command line interface which helps to compile from terminal 
+
+3)babel/preset-env
+
+
+## BABEL CLI 
+
+-> to compile file 
+    npx babel index.js
+-> helps to compile and put output in some file 
+    npx babel index.js --out-file-index-compile.js
+-> compile and puts output evrytime we make any changes  
+npx babel index.js --watch--out-file index-compile.js
+
+=> COMPLIE DIRECTORY
+-> compiles entire src directory and outputs in 
+    npx babel src --out-dir prd
+
+-> compiles entire directory and outputs in file 
+   npx babel src --out-file-index-compile.js
+
+
+
+### How to setup BABEL
+
+- install all required babel packages 
+    npm install @babel/core @babel/cli @babel/preset-env
+- create a file called .bablelrc at the root directory of the Project 
+    { "preset":["@babel/preset-env"]}     // "@babel/env"
+
+- open package.json file , go to script and add
+  "build":"babel index.js --out-file prd",
+  "start":"npm run build && nodemon prd/index.js",
+  "serve":"node prd/index.js",
+
+- To compile directory 
+    open package.json file , go to script and add
+  "build":"babel src --out-file prd",
+  "start":"npm run build && nodemon prd/index.js",
+  "serve":"node prd/index.js",
+
+
+
+## WHAT ACTUALLY HAPPENS??
+
+After we setup babel properly
+if we write the index.js file as per the new ES6 standard , the babel would convert that code in Traditional
+Javascript and ouput a folder prd which will contain a file of same name i.e (index.js) but will the converted code of 
+Traditional JavaScript.
+
+## But there is issue the new changes wouldnt be reflected for that we need to stop the server and then run again
+** basically the script code is okay for production but not development , wee have to change it 
+
+"scripts": {
+    "build": "babel index.js --out-dir prd",
+    "start":"npm run build && nodemon prd/index.js",
+    "serve": "node prd/index.js"
+  }
+// this code is good for production 
+
+
+
+
+"scripts": {
+    "start": "babel index.js -w --out-dir prd",
+    "dev-serve":"nodemon prd/index.js"
+  }
+// this code is good for Development 
+
+
+## For this to work :
+ in one terminal ,     type        npm start
+ in another terminal , type        npm run dev-serve

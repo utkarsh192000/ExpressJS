@@ -1,0 +1,74 @@
+
+Routing refers to determining how an application responds to client request at a particular endpoint 
+    It may be a URI/path and a specific HTTP request method (such as GET,POST,PUT,DELETE)
+    ex /home , /about , /books/yourbook
+
+-> Each route may have one or more callback function , which is executed when route is matched
+    SYNTAX:-   app.method(path,callback);
+    or
+                app.method(path,[callback1,callback2,....]);
+
+->    app is instace of express ; path is path on server ; callback is function which is executed when route is matched
+
+
+// HTTP METHOD:
+
+GET- retrieve the data 
+POST - create /insert data 
+PUT- completely update data 
+PATCH - partially update data 
+DELETE - delete data  
+
+
+
+
+
+
+
+
+
+TO START THE APPLICATION MANDATORY STEPS :
+                    
+1) npm init -y to create package.json
+2) create a app.js file to write a code 
+3) got  to package.json and set 
+    "type":"module"
+4) install express 5.0 by
+    npm i express@5.0.0-alpha.8 
+    you will se it in dependencies
+5)  install nodemon as development dependencies by
+    npm install -D nodemon
+6) go to script in package.json and set
+    "dev":"nodemon app"
+
+7)  to run the APPLICATION use 
+   nodemon run dev 
+
+
+// COMMON CODE FOR MOST OF THE APPLICATION
+
+
+import express from 'express'
+// imported express module 
+
+
+const app=express();
+// created a instance of express 
+
+const port= process.env.PORT || '3000';
+// set a port ; it will either be taken from env or it will 3000
+
+app.get('/',(req,res)=>{
+
+});
+
+
+
+app.listen(port,()=>{
+    console.log(`Server is listening at http://localhost:${port}`);
+});
+// using .listen() method to run a server at a particluar port 
+
+
+
+

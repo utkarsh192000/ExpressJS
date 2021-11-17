@@ -1,0 +1,10 @@
+
+=> To generate a quick Express application skeleton , run the command
+   1)  npx express-generator--view==ejs myapp
+or 
+ 2) npm install -g express-generator
+ express--view=ejs myapp
+ npm install
+ set DEBUG=myapp:* & npm start
+
+ 

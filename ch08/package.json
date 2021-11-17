@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^5.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "name": "ch8",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev":"nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": ""
+}

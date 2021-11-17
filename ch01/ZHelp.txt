@@ -1,0 +1,40 @@
+
+To Install Express:
+
+1) Make sure that Nodejs is installed , along with comes npm (node package manager)
+-> current stable version is 16 
+
+=> To check the version of Nodejs and npm respectively got to Cmd and use command
+    node --version
+    npm --version
+
+2) make a project Directory or use         mkdir folderName 
+3) go into that folder or   cd folderName
+4) install Express by using npm 
+    npm i express@5.0.0-alpha.8     ( to install express 5.0 which is not yet stable , but may become stable in future )
+
+    -> to install express 4.0 (stable)
+        npm i express
+
+    you will be able to express in dependencies in package.json
+
+5) make a index.js as entry point
+6) npm init to make package.json
+7) set "type":"module"   in package.json to use ES6
+8) install nodemon for development so that no need to start server again and again
+
+    => use command     npm install -D nodemon
+
+9) to use nodemon got to package.json and in script set 
+    "start":"nodemon index"
+10) use   npm start  to start the server 
+11) the server has started click on it and run 
+
+
+
+
+
+
+## REMEMBER :
+1) to use modern Js change the import methods
+    

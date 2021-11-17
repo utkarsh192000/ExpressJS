@@ -1,0 +1,100 @@
+
+TO START THE APPLICATION MANDATORY STEPS :
+                    
+1) npm init -y to create package.json
+2) create a app.js file to write a code 
+3) got  to package.json and set 
+    "type":"module"
+4) install express 5.0 by
+    npm i express@5.0.0-alpha.8 
+    you will se it in dependencies
+5)  install nodemon as development dependencies by
+    npm install -D nodemon
+6) go to script in package.json and set
+    "dev":"nodemon app"
+
+7)  to run the APPLICATION use 
+   nodemon run dev 
+
+
+// COMMON CODE FOR MOST OF THE APPLICATION
+
+
+import express from 'express'
+// imported express module 
+
+
+const app=express();
+// created a instance of express 
+
+const port= process.env.PORT || '3000';
+// set a port ; it will either be taken from env or it will 3000
+
+app.get('/',(req,res)=>{
+    res.send("Hello World");
+});
+
+
+
+app.listen(port,()=>{
+    console.log(`Server is listening at http://localhost:${port}`);
+});
+// using .listen() method to run a server at a particluar port 
+
+
+
+
+## ROUTE PARAMETER  (DYNAMIC ROUTE)
+->Route parameters are named URL segments that are used to capture the value specified at their position in url.
+
+-> The captured values are populated in req.params object, with name of route parameter specified inthe path as respective
+  key.
+-> The name of the route parameter must be made of "word " character ([A-Za-z0-9_])
+
+example: 
+/student/:id                               www.example.com/student/12   or             www.example.com/student/30 
+/product/:category/:id                     www.example.com/product/mobile/123 or www.example.com/product/clothes/55
+/product/order/:year/and/:month            www.example.com/product/order/2021/and/jan  or www.example.com/product/order/2016/and/mar 
+/train/:from-:to                           www.example.com/train/ranchi-mumbai
+/location/:state.:city                     www.example.com/location/up.noida
+
+req.params ={"state":"up","city":"noida"}
+
+
+NOTE: the :thing will keep on changing as per the data selected 
+
+
+## ROUTE PARAMETER WITH REGX (Regular Expression )
+
+-> To have more control over the exact string that can be matched by a route parameter , you can append a regular expression 
+    in parenthesis (())
+-> basically it is very useful in restricting on naming the path 
+
+    ex: /student/:id([0-9]{2})                                // www.example.com/student/12
+    // such route basically means that id can have digits only between 0-9 and only number of 2 digits 
+
+    /product/order/:year/and/:month([a-z])            www.example.com/product/order/2021/and/oct
+    // such route can only contain a to z char in its month 
+
+
+
+## ROUTE PARAMETER
+
+app.param() : used to add the callback triggers to route parameter, commonly used to check for data requested related 
+to route parameter  
+
+Syntax : 
+app.param(name,callback)
+app.param([name1,name2,name3],callback)
+
+
+### QUERY STRING 
+
+ex:  /product                      www.example.com/product?category=mobile
+ // whenever we write a url , anything written after ? is query string 
+ // to access it , we have req.query
+  req.query={"category":"mobile"}
+
+ex: /product                      www.example.com/product?category==mobile&id=13
+
+req.query={"category":"mobile","id":13}

@@ -1,0 +1,14 @@
+
+Controller groups related request handling logic separately.
+-> Instead of writing the business logic in routes in app.js and in route file(routes/student.js) ; controller handles the
+logic and then just use it 
+-> It solves the probem when we have such a big logic , code of thousands line, code becomes messy ;
+so controller helps
+
+-> It encorporate the MVC architecture 
+-> we just defines the route in these files, the callback or logic is written in separate folder controllers
+* inside that we can make different controllers for different modules
+
+
+
+

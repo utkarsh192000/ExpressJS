@@ -1,0 +1,22 @@
+{
+  "name": "ch2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel index.js -w --out-dir prd",
+    "dev-serve": "nodemon prd/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "express": "^5.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}

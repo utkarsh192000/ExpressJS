@@ -1,0 +1,58 @@
+### TEMPLATE ENGINE 
+
+-> A TEMPLATE engine enables you to use static template files in your application.
+-> at runtime , template engine replaces variables in template files with actual values ; and transform template into 
+    HTML file and serves it to client .
+-> Make it easier to use dynamic Web pages 
+-> Few popular TEMPLATE engine : ejs,pug,Dust,Mustache etc.
+
+## SETUP TEMPLATE ENGINE 
+1) install temple engine 
+    npm install ejs 
+2) in app.js 
+   -> setup the directory where template files are located 
+    app.set('views''./views')
+
+3) setup the template engine to use 
+    app.set('view engine','ejs')
+
+4) create template files 
+ -> earlier we used to create static html files in views folder ; how simlarly we will create ejs files (.ejs) ;
+    instead of html files ; 
+-> ejs file at runtime would be converted into html and served 
+
+    ./views/index.js
+    ./views/about.js
+
+    note: cde is written in same form as done in html 
+5) Creating routes for Template files 
+    -> but since it is not a HTML , we cant use res.sendFile as it is not HTML file ; what we are goin gto do is , we will 
+        use res.render() method which takes file name  
+        app.get('/',(req,res)=>{
+            res.render('index')
+        })
+
+    note: if  view engine property is not set , we must specify the extension of view files 
+    ex : app.get('view engine ','ejs ') is not mentioned somewhere 
+     then we need to write the extension 
+      app.get('/',(req,res)=>{
+            res.render('index.js')
+        })
+
+    Note: when we make request to home page index.ejs will be rendered as HTML file
+
+6) render()
+    it renders the view and sends rendered HTML string to client 
+    Syntax:
+    res.render(view,[,locals][,callback])
+
+    ex: 
+
+    1) send the rendered view to client 
+    res.render('index')
+    2) paas a local variable to view 
+    res.render('index',{name:"Utkarsh"})
+    3) the rendered HTML string has to be send explicetely 
+    res.render('index',function(err,html){
+        res.send(html)
+    })

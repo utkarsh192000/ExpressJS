@@ -1,0 +1,61 @@
+### EJS 
+-> Embedded Javascript is simple tenplating language taht lets us generate HTML markup with plain Javascript 
+-> simple tags <% %>  , can substitute wit [? ?]
+-> both server and browser support 
+-> compiles with EXpress 
+
+## DISPLAY THE DATA RECEIVED
+
+-> we may display the data passed to view by using <%= %> ex: <%= name %> ; this would print whatever would be passed as name 
+-> Comments <%# %> wouldnt included in HTML
+-> we can also create variables or right javascript code in <% %>
+
+=> If 
+    ->if condition is true , then the statement is executed otherwise not 
+
+    Syntax:
+        <% if(variable){%>
+
+        <%} %>
+
+    ex:
+    <% if(variable){%>
+        <h1> Hello <%= name %> </h1>
+    <%} %>
+
+=> Conditional (if else)
+
+-> if condition is true then statement 1 executed else statement 2 is executed 
+-> Syntax: <% if(condition) { %>
+                statement 1
+            <% } else { %>
+                statement 2
+            <% } %>
+
+
+=>LOOP
+
+-> FOR 
+Syntax: <% for(initial;condition;inc/dcr){ %>
+                statement 
+        <% } %>
+
+
+-> FOR IN
+Syntax: <% for(const key in data){ %>
+                statement 
+        <% } %>
+
+
+
+-> FOR EACH
+Syntax: <% data.forEach(item)=>{ %>
+                statement 
+        <% } %>
+
+-> WHILE LOOP
+
+Syntax: <% while(condition){ %>
+                statement
+                inc/dcr 
+        <% } %>

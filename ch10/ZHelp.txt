@@ -1,0 +1,18 @@
+### Views contains the HTML served by your APPLICATION and separates application logic from presentation logic 
+
+-> They are stored in views directory 
+-> all HTML,CSS , IMAGES fundas are written here 
+
+
+## Creating views :
+-> in /views/index.html , a simple html would be written 
+
+-> create route for View 
+    way of writing route also changes after using views 
+
+    app.get('/',(req,res)=>{
+        res.sendFile(join(process.ewd(),'views','index.html'));
+        // instead of res.send , we would be sending a html page , so use res.sendFile 
+        // we get a method join in path module nodejs 
+        // from views folder serve index.html
+    });

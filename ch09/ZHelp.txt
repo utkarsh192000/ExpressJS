@@ -1,0 +1,65 @@
+TO START THE APPLICATION MANDATORY STEPS and folder division :
+
+
+                    
+1) npm init -y to create package.json
+
+2) got  to package.json and set 
+    "type":"module"
+3) install express 5.0 by
+    npm i express@5.0.0-alpha.8 
+    you will se it in dependencies
+4)  install nodemon as development dependencies by
+    npm install -D nodemon
+5) go to script in package.json and set
+    "dev":"nodemon app"
+
+6)  to run the APPLICATION use 
+   nodemon run dev 
+
+7) create a app.js file to write a code
+    -> this would be the entry point of APPLICATION
+
+
+    
+// COMMON CODE FOR MOST OF THE APPLICATION
+
+
+import express from 'express'
+// imported express module 
+
+
+const app=express();
+// created a instance of express 
+
+const port= process.env.PORT || '3000';
+// set a port ; it will either be taken from env or it will 3000
+
+app.get('/',(req,res)=>{
+    res.send("Hello World");
+});
+
+
+
+app.listen(port,()=>{
+    console.log(`Server is listening at http://localhost:${port}`);
+});
+// using .listen() method to run a server at a particluar port 
+
+
+
+
+
+
+8) make routes folder where we would be writing different routes for different modules separately 
+        -> inside that make files for each module like student.js , teacher.js , subject.js 
+        -> write routes for each module in there files separately , 
+        -> dont forget to export and import them 
+        -> path would be concatenated along with path in app.js 
+
+9) make a controllers folder where we going to write the callback which will be used in routes folder , 
+modules.js like ( student.js , teachers.js  )  
+ -> remember to save them with same them with some name and export ; so that we can import them in routes/module.js
+    and use there 
+
+

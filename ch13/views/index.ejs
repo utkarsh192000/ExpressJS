@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+
+<body>
+    <h1>EJS TEMPLATE ENGINE</h1>
+
+    <h1>
+        <!-- DISPLAY THE VARIABLE data -->
+        <%= name %>
+
+            <!-- CREATING VARIABLE and then displaying it  -->
+
+            <% var i=10 ; %>
+                <%= i %>
+
+            <!-- COMMENTS  -->
+
+            <%# Comment would not be present ejs that is converted to HTMt ; which is later rendered HTML%> 
+
+            <!-- IF  -->
+            <% if(name) { %>
+                <!-- if opening -->
+                Hello <%= name %>
+                <!-- would print Hello and whaever code comes as dynamic -->
+            <% } %>
+            <!-- if closing -->
+
+            <br>
+            <br>
+            <br>
+
+            <!-- IF ELSE  -->
+
+            <% if(id==10) { %>
+                <h4>This id 10</h4>
+                <!-- if we pass 10 as id , this would be printed -->
+            <% } else { %>
+                <h4>This is not id id 10</h4>
+                <!-- else this would be printed -->
+            <% } %>
+
+
+            
+            <!-- IF ELSE IF   -->
+
+            <% if(id==10) { %>
+                <h4>This id 10</h4>
+                <!-- if we pass 10 as id , this would be printed -->
+            
+            <% } else if(id==11) { %>
+                <h4>This id 11</h4>
+            <!-- if we pass 11 as id , this would be printed -->
+            <% } else { %>
+                <h4>This is not id id 10</h4>
+                <!-- else this would be printed -->
+            <% } %>
+
+
+            <!-- FOR LOOP -->
+            
+            <% for(i=0;i<=4;i++){ %>
+                Hello <%= i %>
+                <!-- it will print hello 4 times along with value of i -->
+                <%= marks[i] %>
+            <% } %>
+            
+            <br>
+            <!-- FOR IN LOOP -->
+            
+            <% for(const key in marks){ %>
+                 <%= key %>
+                <!-- key carry index of marks -->
+                <%= marks[key] %>
+            <% } %>
+
+            
+            <br>
+            <!-- FOR OF LOOP -->
+            
+            <% for(const mark of marks){ %>
+                <%= mark %>
+               <!-- mark carry each value of marks -->
+           <% } %>
+
+           <br>
+           <!-- WHILE LOOP -->
+           <% var i=0; %>
+           <% while(i<=4){ %>
+            <%= i %>
+            <%= marks[i] %>
+            <% i++ %>       
+            <% } %>
+
+            <br>
+            <!-- FOR EACH LOOP -->
+            <% marks.forEach((value)=>{ %>
+                <%= value %> 
+            <% }) %>
+
+
+            <br>
+            <!-- FUNCTION CALL -->
+            <% var current=new Date(); %>
+            <!--  wrote the javascript code -->
+            <%= current %>
+            <!--  accessed that variable -->
+
+
+
+            
+
+
+    </h1>
+</body>
+
+</html>
