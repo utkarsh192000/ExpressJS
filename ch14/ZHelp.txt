@@ -1,0 +1,12 @@
+
+## INCLUDE TEMPLATE
+-> this concept is used when we make any sub-template and we want to use in every ejs file 
+    ex: suppose i want same navbar in both home and about page ; instead of writing the same code in both home and about 
+        , we can just write navbar separately and include it in both home and about page 
+
+-> Syntax: <%- include(folder/filename,object)%>
+    ex:    <%- include(myfolder/footer,{name:"Harsh"})%>
+
+
+Convention: A separate folder named as partials or include is made inside the views folder 
+-> All the common code in different files , is written here and the included in different files 

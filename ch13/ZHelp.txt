@@ -59,3 +59,13 @@ Syntax: <% while(condition){ %>
                 statement
                 inc/dcr 
         <% } %>
+
+
+
+## INCLUDE TEMPLATE
+-> this concept is used when we make any sub-template and we want to use in every ejs file 
+    ex: suppose i want same navbar in both home and about page ; instead of writing the same code in both home and about 
+        , we can just write navbar separately and include it in both home and about page 
+
+-> Syntax: <%- include(folder/filename,object)%>
+    ex:    <%- include(myfolder/footer,{name:"Harsh"})%>
