@@ -1,0 +1,64 @@
+## CONNECT MONGODB using Mongoose 
+
+Mongoose requires a connection to a MongoBD database 
+
+-> connect() - we can connect to a locally hosted database with mongoose.connect()
+
+Syntax: connect(uri,options,callback)
+
+uri- String used as conncetion uri 
+options- It is an object passed down to MongoDB driver's connect() Functions 
+callback - callback function 
+
+ex: mongoose.connect("mongodb://localhost:27017/schooldb")
+
+// .connect() along with options 
+
+const options={
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+}
+mongoose.connect("mongodb://localhost:27017/schooldb",options);
+
+
+## IMPORTANT options PROPERTIES 
+
+user- string 
+pass - string 
+dbname -string 
+authSources- string 
+autoIndex- bool 
+
+
+## STEPS :
+
+-> to previous just remember to install ejs and mongoose by commands 
+    npm install ejs 
+    npm install mongoose 
+
+2) import mongoose 
+3) use .connect() method 
+
+NOTE : for demo purpose we can make a database using MONGODB compass , there we create a database and collections 
+
+-> writing the conncetion code in app.js may not be considered a very good practice ; therefore we may create a folder 
+    db parallel to app.js , inside that create a connectdb.js file , which will contain the code 
+
+
+
+
+
+## CONNECTING MONGOOSE TO MONGODB USING AUTHENTICATION AND AUTHERISATION 
+
+1)create user using mongosh
+2) go to that database using use schooldb 
+3) create user by command 
+    db.createUser({ user:'utkarsh',pwd:'123456',roles:[{role:'read',db:'schooldb' } ] } )
+4) can see user using show users  
+5) but we need to enable the autherisation in mongodb config file 
+6) mongodb/5.0/bin and open .cfg file uncomment and in security write authorization: enabled
+
+7) Now we may also pass user , password and other things as OPTIONS in .connect()
+
+
+NOTE:  if your password contains special character , then we must convert then using percent endcoding 
