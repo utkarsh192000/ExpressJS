@@ -1,0 +1,141 @@
+## SCHEMA
+
+-> A document schema is a JSON objec that allows us to define theshape and the content of our
+    document(each entry in sql).
+    -> We can set specific fields , different validation 
+
+-> Everything in Mongoose starts with Schema. Each Schema maps to a MongoDB Collection (Table ) and defines the shape of document
+    within that Collection
+    note: By defaults , mongoose adds an _id property to your schemas.
+
+Syntax: 
+import mongoose from 'mongoose'
+
+const nameSchema=new mongoose.Schema({
+    key1:String,
+    key2:Number,
+    key3:mongoose.Decimal28,
+    key4:[String],
+    key5:Boolean,
+    key6:[{key:String,key:Date}]
+    key7:Date
+})
+
+// But this is just a shorthand way of writing the schema , better way would be to use type,required and other restrictions
+
+
+import mongoose from 'mongoose'
+
+const nameSchema=new mongoose.Schema({
+    key1:{type:String},
+    key2:{tyep:Number},
+    key3:{type:mongoose.Decimal28},
+    key4:{type:Array},
+    key5:{type:Boolean},
+    key6:[{key:{type:String},key:{type:Date}}]
+    key7:{type:Date}
+})
+
+
+ex: 
+
+import mongoose from 'mongoose'
+
+const studentSchema=new mongoose.Schema({
+    name:{type:String},
+    age:{type:Number},
+    fees:{type:mongoose.Decimal28},
+    hobbies:{type:Array},
+    isactive:{type:Boolean},
+    comment:[{value:{type:String},publish:{type:Date}}],
+    join:{type:Date}
+})
+
+// NoTE: when we create a document , mongodb generates an automatic _id property with some encoding , we can overide this
+         creating our own _id 
+
+## TYPE :
+ String,Number ,Date,Buffer,Boolean ,Mixed, objectId, Array, mongoose.Decimal128, Map,Schema 
+
+=> String
+.toLowerCase()
+.toUpperCase()
+.trim()
+match - regx
+enum - craete a validator that checks value in Array 
+minLength()
+MaxLength()
+populate
+
+-> required - may be boolean or function 
+-> default - any or function ; sets a default value for that field 
+-> select : boolean
+-> validate : function , add a validtaor function 
+-> get : function , define custom getter using object.defineProperty
+-> set : function , define custom setter using object.defineProperty
+-> alias : string 
+-> immutable : boolean
+-> transform : function , mongoose calls athis function when we call document.toJSOn , including when JSON.Stringyfy
+
+
+ex:
+
+import mongoose from 'mongoose'
+
+const studentSchema=new mongoose.Schema({
+    name:{type:String,required:true},
+    age:{type:Number,min:18,max:50},
+    fees:{type:mongoose.Decimal128,validate:v=>v>=5550.50},
+    hobbies:{type:Array},
+    isactive:{type:Boolean},
+    comment:[{value:{type:String},publish:{type:Date}}],
+    join:{type:Date,default:Date.now}
+})
+
+
+
+## MODELS 
+-> Models are fancty constructor compiled from Schema definition . An instance of a model is called a document.
+-> Model are responsible for creating and reading document from underlying mOngoDB database.
+
+=> COMPILING SCHEMA :
+
+const studentSchema=mongoose.schema({});
+const Student=mongoose.model('student','studentSchema');
+// it will automatically add s ahead of name Student becomes students 
+
+=> Creating Document using Model 
+
+// Defining Schema :
+const studentSchema=mongoose.schema({name:String});
+
+// Compiling Schema :
+const Student=mongoose.model('Student',studentSchema);
+// note: model is somewhat like a creating a class in Programming languages 
+
+NOTE: This would create a Schema , but data has not been inserted yet 
+
+// creating Data 
+const stu=new Student({
+    name:"Utkarsh"
+}) 
+
+// saving Document
+await stud.save() 
+
+
+
+// STEPS TO CREATE A DATABASE USING MONGOOSE :
+1) npm install mongoose 
+2) import mongoose in app.js
+3) define a DATABASE_URL
+4) make a folder db , make a file connectdb.js 
+    -> write connect db code , export it 
+5) come in app.js import it , call the connectDB(DATABASE_URL); function , to connect
+    -> if database would be present , it will connect , if not , then it would create it and connect 
+6) create a models folder , create ModelName.js file 
+    -> write define schema ; compile it 
+7) run the server 
+    -> this would create a document (table) in your database
+    -> a databse would be created by adding s to the name  
+
