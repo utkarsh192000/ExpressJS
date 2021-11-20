@@ -1,0 +1,16 @@
+## UPDATE DOCUMENT 
+
+
+-> Each model has its own update method for modifying DOCUMENT in the database without returning them to your application
+-> findByIdAndUpdate() : if it finds the matching document , updates it according to the update arg ,paasing options and returns the
+    found document , the query is executed 
+
+    Syntax: findByIdAndUpdate(id,update,options,callback)
+    ex: findByIdAndUpdate("363748aade",{name:"Sunil"},{returnDocument:after})
+
+-> updateOne(): it is used to update single document , MongoDB will update only the first document that matches filter 
+    regardless of the value of the multioptions 
+
+    Syntax: updateOne(filter,update,options,callback)
+    ex: updateOne({id:"32425dfrge5474"},{name:"Utkarsh"},{upsert:true})
+    note: upsert : means that if no such document is found , create and insert it   
