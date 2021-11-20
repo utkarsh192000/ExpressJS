@@ -22,23 +22,35 @@ const studentSchema = new mongoose.Schema({
 
 const studentModel = mongoose.model('student', studentSchema)
 
-// CODE FOR UPDATING THE DOCUMENT 
+// CODE FOR DELETING THE DOCUMENT 
 
 
-// update document 
+// // delete Document by Id 
 
-const updateDocById = async (id) => {
+// const deleteDocById=async (id)=>{
+//     try{
+//         const result=await studentModel.findByIdAndDelete(id)
+//         // deletes teh first document it finds with given id  
+//         console.log(result);
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// }
+
+
+// delete One Document  
+
+const deleteOneDoc = async (a) => {
     try {
-        // const result=await studentModel.findByIdAndUpdate(id,{name:"suresh"});
-        // // it would update name of the document that matches with the id passed as parameter 
+        // const result = await studentModel.deleteOne({ _id: id });
+        // // it delets the one document that matches with given field 
         // console.log(result);
-        // // it would should the previous document values 
 
-        const result = await studentModel.findByIdAndUpdate(id, { name: "suresh" }, { returnDocument: 'after' });
-        // it would update name of the document that matches with the id passed as parameter 
+
+        const result = await studentModel.deleteOne({ age: a });
+        // it delets the one document that matches with given field 
         console.log(result);
-        // it would should the updated document values 
-
     }
     catch (err) {
         console.log(err);
@@ -47,53 +59,13 @@ const updateDocById = async (id) => {
 
 
 
+// delete Many Document based on some field  
 
-// update One document  
-
-const updateOneDoc = async (id) => {
+const deleteManyDoc = async (a) => {
     try {
-        //     const result=await studentModel.updateOne({_id:id},{name:"Sujit"});
-        //     // it would update name of the document that based on id , it can be any field value , ex based on age ,fee
-        //     // it would fetch first value match with it and update it 
-        //     console.log(result);
-
-        const result = await studentModel.updateOne({ _id: id }, { name: "Arjun" }, { upsert: true });
-        // it would update name of the document that based on id , if not found ; craetes it and then insert 
+        const result = await studentModel.deleteOne({ age: a });
+        // it delets the all the documents that matches with given field 
         console.log(result);
-
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
-
-
-// update One document by specific Field  
-
-const updateOneDocByField = async (a) => {
-    try {
-        const result = await studentModel.updateOne({ age:a }, { name: "Risabh" }, { upsert: true });
-        // it would update name of the document that based on age , if not found ; creates it and then insert 
-        // if there is any document whose age is 25 , its name would be changesd to Risabh 
-        console.log(result);
-
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
-
-// update Many documents  
-
-const updateManyDoc = async (a) => {
-    try {
-        const result = await studentModel.updateMany({ age:a }, { name: "Dollar" }, { upsert: true });
-        // it would update name of the all document that based on age , if not found ; creates it and then insert 
-        // if there is any document whose age is 29 , its name would be changed to Dollar  
-        console.log(result);
-
     }
     catch (err) {
         console.log(err);
@@ -103,7 +75,5 @@ const updateManyDoc = async (a) => {
 
 
 
-
-
-export { updateDocById, updateOneDoc,updateOneDocByField ,updateManyDoc}
-// export functiopns so that they can be used further in app.js 
+export { deleteDocById, deleteOneDoc,deleteManyDoc }
+// export functiopns so that they can be used further in app.js

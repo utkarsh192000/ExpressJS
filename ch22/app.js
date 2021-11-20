@@ -5,7 +5,8 @@ import mongoose from 'mongoose';
 // imported mongoose
 import connectDB from './db/connectdb.js';
 // import connectDB function 
-import { deleteDocById,deleteOneDoc,deleteManyDoc } from './models/Student.js';
+
+import { updateDocById, updateOneDoc, updateOneDocByField, updateManyDoc } from './models/Student.js';
 // update functions of Student Model
 
 const DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost:27017"
@@ -24,14 +25,21 @@ const port = process.env.PORT || '3000';
 connectDB(DATABASE_URL);
 
 
-// deleteDocById("61977789ac3b6ab11ac8ecf5");
-// // delete the document with given id 
+// updateDocById("61977769ac3b6ab11ac8ecf5");
+// update as doc paased in id 
 
-// deleteOneDoc(26);
-// // deletes One document with age 26
+// updateOneDoc("61977769ac3b6ab11ac8ecf5");
 
-deleteManyDoc(27);
-// deletes all the document that have age as 27 
+// updateOneDoc("61977789ac3b6ab11ac8ecf5");
+// updating one document using upsert 
+
+// updateOneDocByField(25);
+// update the value of document whose age is 25
+
+updateManyDoc(29);
+// it would update all the document with given with age 29 to given value in object 
+
+
 
 
 app.listen(port, () => {

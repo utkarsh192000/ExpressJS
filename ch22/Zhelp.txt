@@ -1,0 +1,19 @@
+## DELETE DOCUMENT 
+
+-> findByIdAndDelete() : it finds a matching DOCUMENT and deletes it 
+    Syntax: findByIdAndDelete(id,options,callback)
+    note: id can be object,String or a number 
+    ex: findByIdAndDelete("jfdsjdf6574947494830")
+    ex: findByIdAndDelete({_id:"jfdsjdf6574947494830"})
+
+
+-> deleteOne(): it is used to delete the first single DOCUMENT that matches the condition 
+    Syntax: deleteOne(condition,options,callback)
+    ex: deleteOne({_id:"dgdgdgdg68364"}) 
+    ex: deleteOne({_id:"dgdgdgdg68364",age:27}) 
+
+-> deleteMany() : deletes all the document that matches the condition 
+    Syntax: deleteMany(condition,options,callback)
+    ex: deleteMany({age:27})
+    ex: deleteMany({age:27,name:"Rohit"})
+
