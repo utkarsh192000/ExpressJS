@@ -1,0 +1,26 @@
+## TOPICS AS PER THE FOLDER NAME :
+
+1) set up Basic Server and listen  it on some Port 
+2) Install and uninstall ExpressJs
+3) Setup Babel 
+4) First JS application 
+5) Routing in ExpressJs
+6) Router in ExpressJs ; Routes folder concept 
+7) Route Parameter / Dynamic Routes , Query String 
+8) Controllers in ExpressJs
+9) Full Folder Structure along with Basic codebase of Express Application  
+10) Views in Javascript 
+11) Serving Static files , using css  ,Javascript, images  
+12) Setup a Template Engine 
+13) EJS FULL tutorial, 
+14) include template,Dyanmic page using EJS 
+15) Middleware in ExpressJs
+17) Connect ExpressJs to Mongoose 
+18) Schema Create and Model in ExpressJs
+19) Create Document using Mongoose 
+20) Retrieve Document using Mongoose 
+21) Update Document using Mongoose 
+22) Delete Document Using Mongoose  
+23) Cookies in ExpressJs
+26) Registration and User Login 
+28) CRUD REST API USING EXPRESS JS 
